@@ -7,7 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:llm-secure-code": "node dist/llm-secure-code/server/server.mjs"
+    "serve:ssr:llm-secure-code": "node dist/llm-secure-code/server/server.mjs",
+    "security-check": "docker run --rm -v $(pwd):/src -v $(pwd)/odc-data:/usr/share/dependency-check/data -v $(pwd)/odc-reports:/report owasp/dependency-check --project llm-secure-code --scan /src --format ALL --out /report --path /src/package-lock.json"
   },
   "private": true,
   "dependencies": {
